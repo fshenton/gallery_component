@@ -7,11 +7,11 @@ template.innerHTML = `
 		${styles.toString()}}
 	</style>
 	<div>
-		<figure>
-			<img class="${s.mainImage}"/>
+		<figure class="${s.mainFig}">
+			<img id="mainImage" class="${s.mainImage}"/>
 			<figcaption class="${s.caption}"></figcaption>
-			<button class="${s.prevButton} ${s.navButton}"></button>
-			<button class="${s.nextButton} ${s.navButton}"></button>
+			<button id="prevButton" class="${s.prevButton} ${s.navButton}"></button>
+			<button id="nextButton" class="${s.nextButton} ${s.navButton}"></button>
 		</figure>
 		<div>
 			<input type="radio" class="${s.thumbnail}"/>
@@ -19,7 +19,7 @@ template.innerHTML = `
 			<input type="radio" class="${s.thumbnail}"/>
 			<input type="radio" class="${s.thumbnail}"/>
 		</div>
-	</div
+	</div>
 `;
 
 export default template;

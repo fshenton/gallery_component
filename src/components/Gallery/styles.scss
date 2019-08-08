@@ -8,46 +8,51 @@
 		height: 100%;
 	}
 
-	.caption {
-		padding: 1em;
+}
+
+.navButton {
+	width: 100px;
+	height: 60px;
+	position: absolute;
+	top: 50%;
+
+	&.prevButton {
+		left: 0;
 	}
 
-	.navButton {
-		width: 100px;
-		height: 60px;
-		position: absolute;
-		top: 50%;
+	&.nextButton {
+		right: 0;
+	}	
+}
 
-		&.prevButton {
-			left: 0;
+.thumbnails {
+	display: flex;
+	width: 800px;
+	height: 450px;
+
+	.thumbnail {
+		-webkit-appearance: none;
+		flex: 1;
+		height: 200px;
+		cursor: pointer;
+		background-position: center;
+
+		&:nth-child(1) {
+			background-image: url("/assets/2d/1.png");
 		}
 
-		&.nextButton {
-			right: 0;
-		}	
-	}
+		&:nth-child(2) {
+			background-image: url("/assets/2d/2.png");
+		}
 
+		&:nth-child(3) {
+			background-image: url("/assets/2d/3.png");
+		}
+
+		&:nth-child(4) {
+			background-image: url("/assets/2d/4.png");
+		}
+		
+	}
 }
 
-.thumbnail {
-	-webkit-appearance: none;
-	width: 250px;
-	height: 250px;
-
-	&:nth-child(1) {
-		background-image: url("/assets/2d/1.png");
-	}
-
-	&:nth-child(2) {
-		background-image: url("/assets/2d/2.png");
-	}
-
-	&:nth-child(3) {
-		background-image: url("/assets/2d/3.png");
-	}
-
-	&:nth-child(4) {
-		background-image: url("/assets/2d/4.png");
-	}
-	
-}

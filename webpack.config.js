@@ -57,8 +57,12 @@ function buildConfig(env, args){
 					]
 				}
 			]
+		},
+		resolve: {
+			alias: {
+				SRC: src
+			}
 		}
-
 	};
 
 	return config;

@@ -1,5 +1,19 @@
-console.log("working");
-
 import Gallery from "./components/Gallery/";
+import reset from "./reset.scss";
 
-window.customElements.define("web-gallery", Gallery);
+
+addStylesToPage(reset);
+registerComponents();
+
+
+function addStylesToPage(styles){
+	const styleEl = document.createElement("style");
+	styleEl.innerHTML = styles.toString();
+
+	document.head.appendChild(styleEl);
+}//addStyleToPage
+
+function registerComponents(){
+	
+	window.customElements.define("web-gallery", Gallery);
+}//registerComponents

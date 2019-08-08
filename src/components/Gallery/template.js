@@ -14,10 +14,10 @@ template.innerHTML = `
 			<button id="nextButton" class="${s.nextButton} ${s.navButton}"></button>
 		</figure>
 		<div>
-			<input type="radio" class="${s.thumbnail}"/>
-			<input type="radio" class="${s.thumbnail}"/>
-			<input type="radio" class="${s.thumbnail}"/>
-			<input type="radio" class="${s.thumbnail}"/>
+			<input data-num="1" type="radio" class="${s.thumbnail}"/>
+			<input data-num="2" type="radio" class="${s.thumbnail}"/>
+			<input data-num="3" type="radio" class="${s.thumbnail}"/>
+			<input data-num="4" type="radio" class="${s.thumbnail}"/>
 		</div>
 	</div>
 `;

@@ -68,9 +68,9 @@
 	.thumbnailInput {
 		-webkit-appearance: none;
 
-		// &:focus~.thumbnailLabel img ::slotted {
-		// 	filter: brightness(1.2);
-		// }
+		&:focus + .thumbnailLabel {
+			filter: brightness(1.4);
+		}
 	}
 
 	.thumbnailLabel {
@@ -81,8 +81,6 @@
 		::slotted(img) {
 			width: 100%;
 			height: 100%;
-			transition-property: filter, outline-color;
-			transition-duration: 0.3s;
 		}
 
 		&:hover {

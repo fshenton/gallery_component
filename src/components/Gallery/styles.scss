@@ -21,15 +21,20 @@
 	top: 175px;
 	background-size: cover;
 	background-color: transparent;
+	cursor: pointer;
+
+	&:hover {
+		
+	}
 
 	&.prevButton {
 	    left: 10px;
-	    background-image: url("/assets/2d/left-arrow.png");
+	    background-image: url("/assets/2d/left-arrow.svg");
 	}
 
 	&.nextButton {
 		left: 690px;
-		background-image: url("/assets/2d/right-arrow.png");
+		background-image: url("/assets/2d/right-arrow.svg");
 	}	
 }
 
@@ -59,6 +64,11 @@
 
 		&:nth-child(4) {
 			background-image: url("/assets/2d/4.png");
+		}
+
+		&:focus {
+			filter: brightness(1.1);
+			outline-color: pink;
 		}
 		
 	}

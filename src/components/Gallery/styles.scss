@@ -1,9 +1,9 @@
-.mainFig {
+.outputWrapper {
 	width: 800px;
 	height: 450px;
 	background-color: grey;
 
-	.mainImage {
+	.outputImage {
 		width: 100%;
 		height: 100%;
 	}
@@ -27,8 +27,8 @@
 
 .thumbnails {
 	display: flex;
-	width: 800px;
-	height: 450px;
+    width: 100%;
+    height: 200px;
 
 	.thumbnail {
 		-webkit-appearance: none;

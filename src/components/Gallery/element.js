@@ -15,6 +15,8 @@ class Gallery extends HTMLElement {
 		const thumbnailButtons = clone.querySelectorAll("input");
 
 		// set up binding of class functions 
+		this.prevMainImageIndex = this.setCurrMainImageIndex.bind(this, -1);
+		this.nextMainImageIndex = this.setCurrMainImageIndex.bind(this, 1);
 		this.changeMainImage = this.changeMainImage.bind(this);
 		this.handleInputChecked = this.handleInputChecked.bind(this);
 		
@@ -23,20 +25,9 @@ class Gallery extends HTMLElement {
 		this.currMainImageIndex = 1;
 		this.changeMainImage(this.currMainImageIndex);
 
-		// set up the event handlers
-		prevButton.addEventListener("click", () => { 
-			this.currMainImageIndex--;
-			//index 1-4
-			if(this.currMainImageIndex < 1) this.currMainImageIndex = 4; 
-			this.changeMainImage();
-		});
-
-		nextButton.addEventListener("click", () => { 
-			this.currMainImageIndex++;
-			//index 1-4
-			if(this.currMainImageIndex > 4) this.currMainImageIndex = 1;
-			this.changeMainImage();
-		});
+		// add event listeners
+		prevButton.addEventListener("click", this.prevMainImageIndex);
+		nextButton.addEventListener("click", this.nextMainImageIndex);
 		
 		for(let thumbnail of thumbnailButtons){
 			thumbnail.addEventListener("click", this.handleInputChecked);
@@ -46,6 +37,22 @@ class Gallery extends HTMLElement {
 		shadow.appendChild(clone);
 
 	}//constructor
+
+	setCurrMainImageIndex(directionNum, event){
+		event.preventDefault();
+
+		//use the directionNum (either -1 or 1) to decrease/increase the index
+		let index = this.currMainImageIndex + directionNum;
+		if(index > 4){
+			index = 1; //wrap to 1
+		}
+		else if(index < 1){
+			index = 4; //wrap to 4
+		}
+		this.currMainImageIndex = index;
+
+		this.changeMainImage();
+	}//setCurrMainImageIndex
 
 	changeMainImage(){
 		const num = this.currMainImageIndex;

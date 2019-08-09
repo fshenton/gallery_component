@@ -17,15 +17,15 @@ class Gallery extends HTMLElement {
 		console.log(thumbnailButtons);
 
 		// set up binding of class functions 
-		this.prevMainImageIndex = this.setCurrMainImageIndex.bind(this, -1);
-		this.nextMainImageIndex = this.setCurrMainImageIndex.bind(this, 1);
+		this.setInitialMainImage = this.setInitialMainImage.bind(this);
+		this.prevMainImageIndex = this.setCurrMainImageIndex.bind(this, "prev");
+		this.nextMainImageIndex = this.setCurrMainImageIndex.bind(this, "next");
 		this.changeMainImage = this.changeMainImage.bind(this);
 		this.handleInputChecked = this.handleInputChecked.bind(this);
 		
 		// grab and store main image, then set the initial image to show
 		this.mainImage = clone.querySelector("#mainImage");
 		this.currMainImageIndex = 1;
-		this.changeMainImage(this.currMainImageIndex);
 
 		// add event listeners
 		prevButton.addEventListener("click", this.prevMainImageIndex);
@@ -38,13 +38,28 @@ class Gallery extends HTMLElement {
 		// inject final HTML
 		shadow.appendChild(clone);
 
+		//add listener to first slot, once it has an image child it triggers the slotchange event
+		this.slots = this.shadowRoot.querySelectorAll("slot");
+		this.slots[0].addEventListener("slotchange", this.setInitialMainImage);
 	}//constructor
+			
+	setInitialMainImage(event){
+		const initialSrc = event.target.assignedNodes()[0].src;
 
-	setCurrMainImageIndex(directionNum, event){
+		this.changeMainImage(initialSrc);
+	}//setInitialMainImage
+
+	setCurrMainImageIndex(direction, event){
 		event.preventDefault();
 
-		//use the directionNum (either -1 or 1) to decrease/increase the index
-		let index = this.currMainImageIndex + directionNum;
+		let index = 0;
+		if(direction === "prev"){
+			index = this.currMainImageIndex - 1;
+		}
+		else if(direction === "next"){
+			index = this.currMainImageIndex + 1;
+		}
+
 		if(index > 4){
 			index = 1; //wrap to 1
 		}
@@ -53,29 +68,27 @@ class Gallery extends HTMLElement {
 		}
 		this.currMainImageIndex = index;
 
-		this.changeMainImage();
+		const newImageSrc = this.slots[index-1].assignedNodes()[0].src;
+
+		this.changeMainImage(newImageSrc);
 	}//setCurrMainImageIndex
 
-	changeMainImage(){
-		const num = this.currMainImageIndex;
-
-		console.log(num);
-
-		this.mainImage.src = `/assets/2d/${num}.png`;
+	changeMainImage(src){
+		this.mainImage.src = src;
 	}//changeMainImage
 
 	handleInputChecked(event){
-		console.log("pressed");
-
 		const { 
 			checked, 
-			dataset: { num } 
+			dataset: { num },
 		} = event.target;
 
+		this.currMainImageIndex = parseInt(num); //avoids concatenation bug 
+		
+		const newImageSrc = this.slots[num-1].assignedNodes()[0].src;
+
 		if(checked){
-			let thumbnailNo = parseInt(num);
-			this.currMainImageIndex = thumbnailNo;
-			this.changeMainImage();
+			this.changeMainImage(newImageSrc);
 		}
 	}//handleInputChecked
 }

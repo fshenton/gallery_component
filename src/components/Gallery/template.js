@@ -9,18 +9,20 @@ template.innerHTML = `
 		${styles.toString()}
 	</style>
 	<aside>
-		<form>
-			<output class="${s.outputWrapper}">
+		<form class="${s.galleryForm}">
+			<output class="${s.outputWrapper}" for="prevButton nextButton thumbnail1 thumbnail2 thumbnail3 thumbnail4">
 				<img id="mainImage" class="${s.outputImage}"/>
 			</output>
 			<button id="prevButton" class="${s.navButton} ${s.prevButton}"></button>
 			<button id="nextButton" class="${s.navButton} ${s.nextButton}"></button>
-			<div class="${s.thumbnails}">
-				<input data-num="1" type="radio" class="${s.thumbnail}"/>
-				<input data-num="2" type="radio" class="${s.thumbnail}"/>
-				<input data-num="3" type="radio" class="${s.thumbnail}"/>
-				<input data-num="4" type="radio" class="${s.thumbnail}"/>
-			</div>
+			<fieldset>
+				<div class="${s.thumbnails}">
+					<input id="thumbnail1" class="${s.thumbnail}" name="thumbnail" data-num="1" type="radio"/>
+					<input id="thumbnail2" class="${s.thumbnail}" name="thumbnail" data-num="2" type="radio"/>
+					<input id="thumbnail3" class="${s.thumbnail}" name="thumbnail" data-num="3" type="radio"/>
+					<input id="thumbnail4" class="${s.thumbnail}" name="thumbnail" data-num="4" type="radio"/>
+				</div>
+			</fieldset>
 		</form>
 	</aside>
 `;

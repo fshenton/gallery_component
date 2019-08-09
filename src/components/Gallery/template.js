@@ -27,14 +27,39 @@ template.innerHTML = `
 			</button>
 			<fieldset>
 				<div class="${s.thumbnails}">
-					<input id="thumbnail1" class="${s.thumbnail}" name="thumbnail" data-num="1" type="radio"/>
-					<input id="thumbnail2" class="${s.thumbnail}" name="thumbnail" data-num="2" type="radio"/>
-					<input id="thumbnail3" class="${s.thumbnail}" name="thumbnail" data-num="3" type="radio"/>
-					<input id="thumbnail4" class="${s.thumbnail}" name="thumbnail" data-num="4" type="radio"/>
+					<input id="thumbnail1" class="${s.thumbnailInput}" name="thumbnail" data-num="1" type="radio"/>
+					<label for="thumbnail1" class="${s.thumbnailLabel}">
+						<slot name="first"></slot>
+					</label>
+					<input id="thumbnail2" class="${s.thumbnailInput}" name="thumbnail" data-num="2" type="radio"/>
+					<label for="thumbnail2" class="${s.thumbnailLabel}">
+						<slot name="second"></slot>
+					</label>
+					<input id="thumbnail3" class="${s.thumbnailInput}" name="thumbnail" data-num="3" type="radio"/>
+					<label for="thumbnail3" class="${s.thumbnailLabel}">
+						<slot name="third"></slot>
+					</label>
+					<input id="thumbnail4" class="${s.thumbnailInput}" name="thumbnail" data-num="4" type="radio"/>
+					<label for="thumbnail4" class="${s.thumbnailLabel}">
+						<slot name="fourth"></slot>
+					</label>
 				</div>
 			</fieldset>
 		</form>
 	</aside>
 `;
+
+/*
+	<slot name="label">
+			Default
+		</slot>
+*/
+
+/*
+	<input id="thumbnail1" class="${s.thumbnail}" name="thumbnail" data-num="1" type="radio"/>
+	<input id="thumbnail2" class="${s.thumbnail}" name="thumbnail" data-num="2" type="radio"/>
+	<input id="thumbnail3" class="${s.thumbnail}" name="thumbnail" data-num="3" type="radio"/>
+	<input id="thumbnail4" class="${s.thumbnail}" name="thumbnail" data-num="4" type="radio"/>
+*/
 	
 export default template;

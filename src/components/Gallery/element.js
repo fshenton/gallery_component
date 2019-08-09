@@ -14,6 +14,8 @@ class Gallery extends HTMLElement {
 		const nextButton = clone.querySelector("#nextButton");
 		const thumbnailButtons = clone.querySelectorAll("input");
 
+		console.log(thumbnailButtons);
+
 		// set up binding of class functions 
 		this.prevMainImageIndex = this.setCurrMainImageIndex.bind(this, -1);
 		this.nextMainImageIndex = this.setCurrMainImageIndex.bind(this, 1);
@@ -63,6 +65,8 @@ class Gallery extends HTMLElement {
 	}//changeMainImage
 
 	handleInputChecked(event){
+		console.log("pressed");
+
 		const { 
 			checked, 
 			dataset: { num } 

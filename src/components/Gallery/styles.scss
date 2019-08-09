@@ -65,36 +65,28 @@
     width: 100%;
     height: 200px;
 
-	.thumbnail {
+	.thumbnailInput {
 		-webkit-appearance: none;
+	}
+
+	.thumbnailLabel {
 		flex: 1;
 		height: 200px;
 		cursor: pointer;
-		background-position: center;
-		transition-property: filter, outline-color;
-		transition-duration: 0.3s;
+		// transition-property: filter, outline-color;
+		// transition-duration: 0.3s;
 
-		&:nth-child(1) {
-			background-image: url("/assets/2d/1.png");
-		}
-
-		&:nth-child(2) {
-			background-image: url("/assets/2d/2.png");
-		}
-
-		&:nth-child(3) {
-			background-image: url("/assets/2d/3.png");
-		}
-
-		&:nth-child(4) {
-			background-image: url("/assets/2d/4.png");
-		}
-
-		&:focus {
-			filter: brightness(1.2);
-			outline-color: pink;
-		}
+		// &:focus {
+		// 	filter: brightness(1.2);
+		// 	outline-color: pink;
+		// }
 		
+		::slotted(img) {
+			width: 100%;
+			height: 100%;
+		}
 	}
 }
+
+
 

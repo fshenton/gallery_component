@@ -15,17 +15,21 @@
 }
 
 .navButton {
-	width: 100px;
-	height: 60px;
 	position: absolute;
-	top: 50%;
+	width: 100px;
+	height: 100px;
+	top: 175px;
+	background-size: cover;
+	background-color: transparent;
 
 	&.prevButton {
-		left: 0;
+	    left: 10px;
+	    background-image: url("/assets/2d/left-arrow.png");
 	}
 
 	&.nextButton {
-		right: 0;
+		left: 690px;
+		background-image: url("/assets/2d/right-arrow.png");
 	}	
 }
 

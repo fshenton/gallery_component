@@ -1,4 +1,5 @@
 .galleryForm {
+	position: relative;
 	width: 800px;
 }
 
@@ -22,19 +23,35 @@
 	background-size: cover;
 	background-color: transparent;
 	cursor: pointer;
+	$button-offset: 10px;
+	$button-hover-offset: 10px;
 
-	&:hover {
-		
+	.svg {
+		transition-property: transform, filter;
+		transition-duration: 0.25s;
+		transition-timing-function: ease;
+		transform: translateX(0);
+		filter: drop-shadow(0 0 0 transparent);
+	}
+
+	&:hover .svg {
+		filter: drop-shadow(0 0 3px purple);
 	}
 
 	&.prevButton {
-	    left: 10px;
-	    background-image: url("/assets/2d/left-arrow.svg");
+	    left: $button-offset;
+	    
+	    &:hover .prevSVG {
+			transform: translateX(-$button-hover-offset);
+		}
 	}
 
 	&.nextButton {
-		left: 690px;
-		background-image: url("/assets/2d/right-arrow.svg");
+		right: $button-offset;
+		
+		&:hover .nextSVG {
+			transform: translateX($button-hover-offset);
+		}
 	}	
 }
 

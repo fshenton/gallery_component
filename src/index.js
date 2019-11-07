@@ -1,14 +1,13 @@
 import Gallery from "./components/Gallery/";
-import reset from "./reset.scss";
-
+import reset from "./shared/reset.scss";
 
 addStylesToPage(reset);
 registerComponents();
 
 
-function addStylesToPage(styles){
+function addStylesToPage(style){
 	const styleEl = document.createElement("style");
-	styleEl.innerHTML = styles.toString();
+	styleEl.innerHTML = style.toString();
 
 	document.head.appendChild(styleEl);
 }//addStyleToPage

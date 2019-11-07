@@ -1,11 +1,10 @@
 import styles, { locals as s } from "./styles.scss";
-import reset from "SRC/reset.scss";
+// import reset from "SRC/shared/reset.scss";
 
 const template = document.createElement("template");
 
 template.innerHTML = `
 	<style>
-		${reset.toString()}
 		${styles.toString()}
 	</style>
 	<aside>
@@ -17,7 +16,7 @@ template.innerHTML = `
 				<svg class="${s.prevSVG} ${s.svg}" viewBox="0 0 129 129">
 					<path d="M34.6,67.4c-1.6-1.6-1.6-4.2,0-5.8L88.5,7.7c1.6-1.6,4.2-1.6,5.8,0s1.6,4.2,0,5.8l-51,51l51,51c1.6,1.6,1.6,4.2,0,5.8
 					c-0.8,0.8-1.8,1.2-2.9,1.2c-1.1,0-2.1-0.4-2.9-1.2L34.6,67.4z"/>
-				</svg
+				</svg>
 			</button>
 			<button id="nextButton" class="${s.navButton} ${s.nextButton}">
 				<svg class="${s.nextSVG} ${s.svg}" viewBox="0 0 129 129">
